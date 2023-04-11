@@ -1,0 +1,34 @@
+<p>product works!</p>
+<p>{{ name }}</p>
+<h1>{{ 1 + methodeA()}}</h1>
+<button [disabled]="prop">save</button>
+<br>
+<button (click)="show()" type="submit">save2</button>
+<br>
+<p>{{ message }}</p>
+
+<input [(ngModel)]="twoWayProp">
+
+<p>{{  twoWayProp }}</p>
+
+<table border="3">
+<tr>
+    <td>Id</td>
+    <td>Titre</td>
+    <td>Price</td>
+    <td>Quantity</td>
+    <td>Likes</td>
+    <td>Action</td>
+    <td>likeButt</td>
+</tr>
+<tr *ngFor="let p of listProdcut , let i = index">
+    <td>{{p.id}}</td>
+    <td>{{p.title}}</td>
+    <td>{{p.price}}</td>
+    <td>{{p.quantity}}</td>
+    <td>{{p.like}}</td>
+    <td><button (click)="buy(i)" type="submit" disabled="!buy(i)">Buy</button></td>
+    <td><button type="submit">Like</button></td>
+</tr>
+
+</table>

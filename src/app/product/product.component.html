@@ -14,6 +14,7 @@
 <input [(ngModel)] ="prixMax" type="number">
 <table border="3">
 <tr>
+    <div>
     <td>Id</td>
     <td>Titre</td>
     <td>Price</td>
@@ -21,9 +22,10 @@
     <td>Likes</td>
     <td>Action</td>
     <td>likeButt</td>
+</div>
 </tr>
 <tr *ngFor="let p of listProdcut , let i = index">
-    <div *ngIf="p.price< prixMax">
+    <div *ngIf="p.price < prixMax">
     <td>{{p.id}}</td>
     <td>{{p.title}}</td>
     <td>{{p.price}}</td>

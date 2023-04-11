@@ -1,8 +1,8 @@
 export class Product
 {
-    id:number | undefined;
-    title:string | undefined;
-    price: number | undefined;
+    id:any;
+    title:any;
+    price: any;
     quantity:any;
-    like:number | undefined;
+    like:any;
 }

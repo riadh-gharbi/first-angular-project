@@ -11,6 +11,7 @@
 
 <p>{{  twoWayProp }}</p>
 
+<input [(ngModel)] ="prixMax" type="number">
 <table border="3">
 <tr>
     <td>Id</td>
@@ -22,13 +23,20 @@
     <td>likeButt</td>
 </tr>
 <tr *ngFor="let p of listProdcut , let i = index">
+    <div *ngIf="p.price< prixMax">
     <td>{{p.id}}</td>
     <td>{{p.title}}</td>
     <td>{{p.price}}</td>
     <td>{{p.quantity}}</td>
     <td>{{p.like}}</td>
-    <td><button (click)="buy(i)" type="submit" disabled="!buy(i)">Buy</button></td>
-    <td><button type="submit">Like</button></td>
+    <td><button (click)="buy(i)" type="submit"  [disabled] ="p.quantity ==0">Buy</button></td>
+    <td><button (click)="like(i)" type="submit">Like</button></td>
+    </div>
 </tr>
 
 </table>
+
+
+
+
+

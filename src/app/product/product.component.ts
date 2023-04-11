@@ -12,9 +12,10 @@ export class ProductComponent implements OnInit {
 
   name="bonjour and hello"
 
-  prop: boolean=true;
+  prop: boolean=false;
   message:string=''
   twoWayProp="Bonjour Two Way"
+  prixMax:number=0;
   methodeA(){return 68}
   listProdcut:Product[]=[];
   ngOnInit(): void {
@@ -27,14 +28,15 @@ export class ProductComponent implements OnInit {
   {
     this.message = 'hiiii'
   }
-  buy(i:number): boolean
+
+  buy(i:number)
   {
-    if(this.listProdcut[i].quantity == 0)
-    {
-      return true;
-    }
-    this.listProdcut[i].quantity= this.listProdcut[i].quantity - 1;
-    return false;
+    this.listProdcut[i].quantity= this.listProdcut[i].quantity - 1; 
+  }
+
+  like(i:number)
+  {
+    this.listProdcut[i].like +=1;
   }
  
   

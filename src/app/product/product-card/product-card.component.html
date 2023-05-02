@@ -1,0 +1,13 @@
+<div class="card"  style="width: 18rem;" *ngIf="pMax ==null || pMax==0 ||pMax==prod.price || prod.price < pMax" >
+    <img src="/assets/images/tshirt.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Id: {{prod.id}}</h5>
+      <h5 class="card-title">Title: {{prod.title}}</h5>
+      <h6 class="card-text">Price: {{prod.price}}</h6>
+      <h6 class="card-text">Quantity: {{prod.quantity}}</h6>
+      <h6 class="card-text">Likes: {{prod.like}}</h6>
+
+       <button (click)="buy()" type="submit" class="btn btn-primary"  [disabled] ="prod.quantity ==0">Buy</button> 
+      <button (click)="like()" type="submit" class="btn btn-danger">Like</button> 
+    </div>
+  </div>

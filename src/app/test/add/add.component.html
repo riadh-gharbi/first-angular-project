@@ -1,0 +1,44 @@
+<div class="container">
+    <!-- Template Driven Form , Simpler and easier -->
+    <form (ngSubmit)="onSubmit()"  #f="ngForm">
+    <div class="form-group">
+            <label for="id">ID</label>
+            <input type="text" name="id" class="form-control" [(ngModel)]="product.id" #id="ngModel" placeholder="Enter ID" 
+             pattern="[1-9]{1}" required>
+            <div class="alert alert-danger" *ngIf="id.touched && id.invalid"> <!-- Control de saisie -->
+                <div *ngIf="id.errors?.['required']"> <!-- For Required -->
+                    Champs Vide
+                </div>
+                <div *ngIf="id.errors?.['pattern']"> <!-- for pattern check -->
+                    L'Id doit être entre 1 et 9
+                </div>
+            </div>
+            <label for="id">Quantité</label>
+            <input type="text" name="Quantité" class="form-control" [(ngModel)]="product.quantity" #q="ngModel"placeholder="Enter Quantity"
+            pattern="[1-9][0-9][0-9]" required>
+            <div class="alert alert-danger" *ngIf="q.touched && q.invalid"> <!-- Control de saisie -->
+                <div *ngIf="q.errors?.['pattern']"> <!-- for pattern check -->
+                    Quantité doit etre 3 digit
+                </div>
+                <div *ngIf="q.errors?.['required']"> <!-- For Required -->
+                    Required
+                </div>
+            </div>
+            <label for="id">Titre</label>
+            <input type="text" name="Titre" class="form-control" [(ngModel)]="product.title" #t="ngModel"placeholder="Enter Title"
+            pattern="[A-Z]{3}" required>
+            <div class="alert alert-danger" *ngIf="t.touched && t.invalid"> <!-- Control de saisie -->
+                <div *ngIf="t.errors?.['pattern']"> <!-- for pattern check -->
+                    titre doit etre 3 lettres maj
+                </div>
+                <div *ngIf="t.errors?.['required']"> <!-- For Required -->
+                    Required
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-success" [disabled]="!f.form.valid">Submit</button>
+
+    </div>
+
+    </form>
+</div>

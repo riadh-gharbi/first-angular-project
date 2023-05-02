@@ -1,5 +1,5 @@
 <p>product works!</p>
-<p>{{ name }}</p>
+<!--<p>{{ name }}</p>
 <h1>{{ 1 + methodeA()}}</h1>
 <button [disabled]="prop">save</button>
 <br>
@@ -37,8 +37,17 @@
 </tr>
 
 </table>
-
-
+-->
+<div class="container">
+    <input type="number" name="prixMax" [(ngModel)]="prixMax">
+    <div class="row">
+ <app-product-card class="col-3 m-3"  *ngFor="let p of listProdcut , let i = index"
+  [prod]="p" [pMax]="prixMax"
+  (likeEvent)="like($event)"
+  (buyEvent)="buy($event)" ></app-product-card>
+</div>
+<button type="submit" class="btn btn-secondary" (click)="appStart()">Child Start</button>
+</div>
 
 
 

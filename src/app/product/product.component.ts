@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Product } from '../model/product';
+import { ProductCardComponent } from './product-card/product-card.component';
 
 @Component({
   selector: 'app-product',
@@ -8,6 +9,8 @@ import { Product } from '../model/product';
 })
 export class ProductComponent implements OnInit {
 
+  @ViewChild(ProductCardComponent)
+  private x:ProductCardComponent;
   constructor() { }
 
   name="bonjour and hello"
@@ -15,7 +18,7 @@ export class ProductComponent implements OnInit {
   prop: boolean=false;
   message:string=''
   twoWayProp="Bonjour Two Way"
-  prixMax:number=0;
+  prixMax:number;
   methodeA(){return 68}
   listProdcut:Product[]=[];
   ngOnInit(): void {
@@ -29,16 +32,21 @@ export class ProductComponent implements OnInit {
     this.message = 'hiiii'
   }
 
-  buy(i:number)
+  buy(prod:Product)
   {
+    let i = this.listProdcut.indexOf(prod);
     this.listProdcut[i].quantity= this.listProdcut[i].quantity - 1; 
   }
 
-  like(i:number)
+  like(prod:Product)
   {
+    let i = this.listProdcut.indexOf(prod);
     this.listProdcut[i].like +=1;
   }
- 
+  appStart()
+  {
+    this.x.start();
+  }
   
     
 

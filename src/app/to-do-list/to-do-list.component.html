@@ -1,0 +1,16 @@
+<div class="container">
+    <div *ngFor="let todo of todolist" >
+        {{todo | json}}
+
+    </div>
+
+    <button class="btn btn-success" (click)="getNumberCompleted()">Completed</button>
+    <div *ngIf = "completed" class="alert alert-danger">
+        nombre completed : {{ completed }}
+    </div>
+    
+    <button class="btn btn-success" (click)="getNumberIncomplted()">InCompleted</button>
+    <div *ngIf = "incompleted" class="alert alert-danger">
+        nombre completed : {{ incompleted }}
+    </div>
+</div>

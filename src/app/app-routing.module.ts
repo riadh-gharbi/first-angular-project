@@ -9,6 +9,7 @@ import { TestComponent } from './test/test.component';
 import { AddComponent } from './test/add/add.component';
 import { AnnModule } from './ann/ann.module';
 import { AnnRoutingModule } from './ann/ann-routing.module';
+import { ToDoListComponent } from './to-do-list/to-do-list.component';
 
 
 
@@ -20,8 +21,9 @@ const routes : Routes = [
   { path: 'test', component:TestComponent ,children: [
     {path: 'add', component: AddComponent}
   ]},
-
+  { path : 'todoList', component: ToDoListComponent},
   { path : '**', component: NotFoundComponent},
+
   //{ path: 'ann', loadChildren: () => import('./ann/ann.module').then(m => m.AnnModule) },
   
 

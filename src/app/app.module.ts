@@ -16,6 +16,8 @@ import { AddComponent } from './test/add/add.component';
 import { ProductCardComponent } from './product/product-card/product-card.component';
 import { AnnModule } from './ann/ann.module';
 import { AnnRoutingModule } from './ann/ann-routing.module';
+import { ToDoListComponent } from './to-do-list/to-do-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -30,13 +32,15 @@ import { AnnRoutingModule } from './ann/ann-routing.module';
     TestComponent,
     AddComponent,
     ProductCardComponent,
+    ToDoListComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     AnnModule,
-    AnnRoutingModule
+    AnnRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

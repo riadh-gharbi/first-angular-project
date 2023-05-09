@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Product } from '../model/product';
 import { ProductCardComponent } from './product-card/product-card.component';
+import { ProductService } from '../service/product.service';
 
 @Component({
   selector: 'app-product',
@@ -11,7 +12,7 @@ export class ProductComponent implements OnInit {
 
   @ViewChild(ProductCardComponent)
   private x:ProductCardComponent;
-  constructor() { }
+  constructor(private productService: ProductService) { }
 
   name="bonjour and hello"
 
@@ -22,10 +23,14 @@ export class ProductComponent implements OnInit {
   methodeA(){return 68}
   listProdcut:Product[]=[];
   ngOnInit(): void {
-    this.listProdcut=[
+   /* this.listProdcut=[
       {id: 1, title: "T-shirt 1", price: 18, quantity: 0, like: 0},
       {id: 2, title: "T-shirt 2", price: 21, quantity: 10, like: 0},
-      {id: 3, title: "T-shirt 3", price: 16, quantity: 8, like: 0}, ]
+      {id: 3, title: "T-shirt 3", price: 16, quantity: 8, like: 0}, ]*/
+      this.productService.getAll().subscribe(
+        (data:Product[]) => {this.listProdcut = data}
+      );
+      
   }
   show()
   {

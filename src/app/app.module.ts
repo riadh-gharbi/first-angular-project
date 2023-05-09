@@ -14,6 +14,8 @@ import { FormProductComponent } from './product/form-product/form-product.compon
 import { TestComponent } from './test/test.component';
 import { AddComponent } from './test/add/add.component';
 import { ProductCardComponent } from './product/product-card/product-card.component';
+import { AnnModule } from './ann/ann.module';
+import { AnnRoutingModule } from './ann/ann-routing.module';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { ProductCardComponent } from './product/product-card/product-card.compon
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AnnModule,
+    AnnRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

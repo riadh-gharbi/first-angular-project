@@ -7,6 +7,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { FormProductComponent } from './product/form-product/form-product.component';
 import { TestComponent } from './test/test.component';
 import { AddComponent } from './test/add/add.component';
+import { AnnModule } from './ann/ann.module';
+import { AnnRoutingModule } from './ann/ann-routing.module';
 
 
 
@@ -20,7 +22,7 @@ const routes : Routes = [
   ]},
 
   { path : '**', component: NotFoundComponent},
-  { path: 'ann', loadChildren: () => import('./ann/ann.module').then(m => m.AnnModule) },
+  //{ path: 'ann', loadChildren: () => import('./ann/ann.module').then(m => m.AnnModule) },
   
 
 ];
@@ -29,6 +31,8 @@ const routes : Routes = [
   imports: [
     CommonModule,
     RouterModule.forRoot(routes),
+    AnnModule,
+    AnnRoutingModule,
   ],
   exports: [RouterModule]
 })
